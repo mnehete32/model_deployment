@@ -12,7 +12,6 @@ with open ("model/lb.pkl", "rb") as f:
 def slice_validate(df, feature):
     """ Function for calculating descriptive stats on slices of the Iris dataset."""
 
-    precisions = recalls = fbetas = []
     # temp_df = out_df.copy()
     for cls in df[feature].unique():
         # row_df = out_df.copy()
