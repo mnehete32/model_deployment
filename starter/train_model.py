@@ -1,12 +1,10 @@
 # Script to train machine learning model.
 
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 import pickle
 from ml.data import process_data
 from ml.model import *
 import pandas as pd
-import numpy as np
 
 
 
@@ -17,7 +15,10 @@ import numpy as np
 data = pd.read_csv("data/census.csv")
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
-train, test = train_test_split(data, test_size=0.20)
+train, test = train_test_split(data, test_size=0.20, random_state= 32)
+
+
+
 
 cat_features = [
     "workclass",
@@ -53,6 +54,16 @@ print("Precision: {}".format(precision))
 print("Recall: {}".format(recall))
 print("Fbeta: {}".format(fbeta))
 
+
+test["prediction"] = pred
+test.to_csv("data/test.csv")
+
 with open('model/model.pkl','wb') as f:
     pickle.dump(model,f)
+
+with open('model/encoder.pkl','wb') as f:
+    pickle.dump(encoder,f)
+
+with open('model/lb.pkl','wb') as f:
+    pickle.dump(lb,f)
 

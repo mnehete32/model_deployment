@@ -1,6 +1,5 @@
 from fastapi import FastAPI,Body
-od: str
-from typing import Union
+
 from pydantic import BaseModel
 import os
 import pandas as pd
