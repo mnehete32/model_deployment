@@ -1,0 +1,15 @@
+[MASTER]
+disable= wildcard-import,
+ method-hidden,
+ too-many-lines,
+ missing-final-newline,
+ missing-module-docstring,
+ import-error,
+ line-too-long,
+ trailing-whitespace,
+ invalid-name,
+ consider-using-f-string,
+ missing-function-docstring,
+ redefined-outer-name,
+ duplicate-code,
+ wrong-import-order
