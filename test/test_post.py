@@ -18,10 +18,9 @@ data = {
   "native_country": "United-States"
 }
 
-low_salary_test = requests.post("http://localhost:8000/inference", data=json.dumps(data))
-print(low_salary_test.json())
-print(low_salary_test.status_code)
-
+low_salary_test = requests.post("https://my-udacity-mlops-app-0caba5ffe330.herokuapp.com/inference", data=json.dumps(data))
+print("Result: {}".format(low_salary_test.json()))
+print("Status Code: {}".format(low_salary_test.status_code))
 assert "salary" in low_salary_test.json()
 assert low_salary_test.json()["salary"] == "<=50K"
 
@@ -45,8 +44,8 @@ data = {
   "native_country": "United-States"
 }
 
-high_salary_test = requests.post("http://localhost:8000/inference", data=json.dumps(data))
-print(high_salary_test.json())
-print(high_salary_test.status_code)
+high_salary_test = requests.post("https://my-udacity-mlops-app-0caba5ffe330.herokuapp.com/inference", data=json.dumps(data))
+print("Result: {}".format(high_salary_test.json()))
+print("Status Code: {}".format(high_salary_test.status_code))
 assert "salary" in high_salary_test.json()
 assert high_salary_test.json()["salary"] == ">50K"
